@@ -519,8 +519,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  jumpForce: 2
+  jumpForce: 6
+  airControl: 1
   gravityModifier: 1
+  playerCamera: {fileID: 1231093452}
+  _isGrounded: 0
 --- !u!1 &1231093450
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,7 +628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2112591173539161490, guid: 2380a993329443846b1f442b1304671e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.005
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2112591173539161490, guid: 2380a993329443846b1f442b1304671e, type: 3}
       propertyPath: m_LocalPosition.z
