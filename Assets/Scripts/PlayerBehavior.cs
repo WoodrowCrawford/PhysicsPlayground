@@ -28,19 +28,19 @@ public class PlayerBehavior : MonoBehaviour
     private void Update()
     {
         //Get movement input
-        _desiredGroundVelocity.x = Input.GetAxis("Horizontal");
-        _desiredGroundVelocity.y = 0.0f;
-        _desiredGroundVelocity.z = Input.GetAxis("Vertical");
+        float inputForward = Input.GetAxis("Vertical");
+        float inputRight = Input.GetAxis("Horizontal");
 
-        //Get camera normal
+        //Get camera forward
         Vector3 cameraForward = playerCamera.transform.forward;
-
         cameraForward.y = 0.0f;
         cameraForward.Normalize();
+
         //Get camera right
         Vector3 cameraRight = playerCamera.transform.right;
 
-        _desiredGroundVelocity = (_desiredGroundVelocity.x * cameraRight + _desiredGroundVelocity.z * cameraForward);
+
+        _desiredGroundVelocity = (cameraForward * inputForward) + (cameraRight * inputRight);
 
         //Get jump input
         _isJumpDesired = Input.GetButtonDown("Jump");
