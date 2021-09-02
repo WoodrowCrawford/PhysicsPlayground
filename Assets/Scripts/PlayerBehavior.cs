@@ -4,25 +4,22 @@ using UnityEngine;
 
 public class PlayerBehavior : MonoBehaviour
 {
-    [SerializeField]
     public float speed = 5.0f;
-    public float jumpForce = 10.0f;
+    public float jumpStrength = 10.0f;
     public float airControl = 1.0f;
     public float gravityModifier = 1.0f;
+    public bool faceWithCamera = true;
 
     public Camera playerCamera;
 
     private CharacterController _controller;
-
     [SerializeField]
-    private Animator animator;
+    private Animator _animator;
 
-    private Vector3 _desiredGroundVelocity;
-    private Vector3 _desiredAirVelocity;
+    private Vector3 _desiredVelocity;
+    private Vector3 _airVelocity;
     private bool _isJumpDesired = false;
-    public  bool _isGrounded = false;
-    public bool faceWithCamera = true;
-
+    private bool _isGrounded = false;
 
     private void Awake()
     {
@@ -39,75 +36,57 @@ public class PlayerBehavior : MonoBehaviour
         Vector3 cameraForward = playerCamera.transform.forward;
         cameraForward.y = 0.0f;
         cameraForward.Normalize();
-
         //Get camera right
         Vector3 cameraRight = playerCamera.transform.right;
 
-
-        _desiredGroundVelocity = (cameraForward * inputForward) + (cameraRight * inputRight);
-
-        //Update animations
-        if(faceWithCamera)
-        {
-            transform.forward = cameraForward;
-            animator.SetFloat("Speed", inputForward);
-            animator.SetFloat("Direction", inputRight);
-        }
-       else 
-        {
-            if (_desiredGroundVelocity != Vector3.zero)
-                transform.forward = _desiredGroundVelocity.normalized;
-            animator.SetFloat("Speed", _desiredGroundVelocity.magnitude / speed);
-        }
-        animator.SetBool("Jump", !_isGrounded);
-       
-
+        //Find the desired velocity
+        _desiredVelocity = (cameraForward * inputForward) + (cameraRight * inputRight);
 
         //Get jump input
         _isJumpDesired = Input.GetButtonDown("Jump");
 
-        //Sets the movement magnitude
-        _desiredGroundVelocity.Normalize();
-        _desiredGroundVelocity *= speed;
+        //Set movement magnitude
+        _desiredVelocity.Normalize();
+        _desiredVelocity *= speed;
 
-
-
-    }
-
-    private void FixedUpdate()
-    {
-
-       
         //Check for ground
         _isGrounded = _controller.isGrounded;
 
-        //update animations
-        animator.SetFloat("Speed", _desiredGroundVelocity.magnitude / speed);
-
-        //Apply jump force
-        if (_isJumpDesired && _controller.isGrounded)
+        //Update animations
+        if (faceWithCamera)
         {
-            _desiredAirVelocity.y = jumpForce;
+            transform.forward = cameraForward;
+            _animator.SetFloat("Speed", inputForward);
+            _animator.SetFloat("Direction", inputRight);
+        }
+        else
+        {
+            if (_desiredVelocity != Vector3.zero)
+                transform.forward = _desiredVelocity.normalized;
+            _animator.SetFloat("Speed", _desiredVelocity.magnitude / speed);
+        }
+        _animator.SetBool("Jump", !_isGrounded);
+
+        //Apply jump strength
+        if (_isJumpDesired && _isGrounded)
+        {
+            _airVelocity.y = jumpStrength;
             _isJumpDesired = false;
         }
 
-        //stop on ground
-        if (_isGrounded && _desiredAirVelocity.y < 0.0f)
+        //Stop on ground
+        if (_isGrounded && _airVelocity.y < 0.0f)
         {
-            _desiredAirVelocity.y = -1.0f;
+            _airVelocity.y = -1.0f;
         }
 
         //Apply gravity
-        _desiredAirVelocity += Physics.gravity * gravityModifier * Time.fixedDeltaTime;
+        _airVelocity += Physics.gravity * gravityModifier * Time.deltaTime;
 
-        _desiredGroundVelocity += _desiredAirVelocity;
+        //Add air velocity
+        _desiredVelocity += _airVelocity;
 
-
-
-        //Moves
-        _controller.Move((_desiredGroundVelocity + _desiredAirVelocity) * Time.fixedDeltaTime);
-
-       
+        //Move
+        _controller.Move(_desiredVelocity * Time.deltaTime);
     }
-   
 }
