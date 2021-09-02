@@ -14,10 +14,14 @@ public class PlayerBehavior : MonoBehaviour
 
     private CharacterController _controller;
 
+    [SerializeField]
+    private Animator animator;
+
     private Vector3 _desiredGroundVelocity;
     private Vector3 _desiredAirVelocity;
     private bool _isJumpDesired = false;
     public  bool _isGrounded = false;
+    public bool faceWithCamera = true;
 
 
     private void Awake()
@@ -42,12 +46,31 @@ public class PlayerBehavior : MonoBehaviour
 
         _desiredGroundVelocity = (cameraForward * inputForward) + (cameraRight * inputRight);
 
+        //Update animations
+        if(faceWithCamera)
+        {
+            transform.forward = cameraForward;
+            animator.SetFloat("Speed", inputForward);
+            animator.SetFloat("Direction", inputRight);
+        }
+       else 
+        {
+            if (_desiredGroundVelocity != Vector3.zero)
+                transform.forward = _desiredGroundVelocity.normalized;
+            animator.SetFloat("Speed", _desiredGroundVelocity.magnitude / speed);
+        }
+        animator.SetBool("Jump", !_isGrounded);
+       
+
+
         //Get jump input
         _isJumpDesired = Input.GetButtonDown("Jump");
 
         //Sets the movement magnitude
         _desiredGroundVelocity.Normalize();
         _desiredGroundVelocity *= speed;
+
+
 
     }
 
@@ -57,6 +80,9 @@ public class PlayerBehavior : MonoBehaviour
        
         //Check for ground
         _isGrounded = _controller.isGrounded;
+
+        //update animations
+        animator.SetFloat("Speed", _desiredGroundVelocity.magnitude / speed);
 
         //Apply jump force
         if (_isJumpDesired && _controller.isGrounded)
@@ -68,7 +94,7 @@ public class PlayerBehavior : MonoBehaviour
         //stop on ground
         if (_isGrounded && _desiredAirVelocity.y < 0.0f)
         {
-            _desiredAirVelocity.y = -0.1f;
+            _desiredAirVelocity.y = -1.0f;
         }
 
         //Apply gravity
@@ -76,7 +102,7 @@ public class PlayerBehavior : MonoBehaviour
 
         _desiredGroundVelocity += _desiredAirVelocity;
 
-        
+
 
         //Moves
         _controller.Move((_desiredGroundVelocity + _desiredAirVelocity) * Time.fixedDeltaTime);
