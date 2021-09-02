@@ -627,7 +627,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 606879183}
   distanceFromTarget: 13
-  sensitivity: 5
+  sensitivity: 20
   invertY: 1
 --- !u!1001 &6243141681028853221
 PrefabInstance:

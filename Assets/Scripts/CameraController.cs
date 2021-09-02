@@ -14,9 +14,12 @@ public class CameraController : MonoBehaviour
         //Rotate the camera
         if(Input.GetMouseButton(1))
         {
+            //Store angles
             Vector3 angles = transform.eulerAngles;
             Vector2 rotation;
-            rotation.x = Input.GetAxis("Mouse Y") * (invertY ? 1.0f :  1.0f);
+
+            //Gets the inputs
+            rotation.x = Input.GetAxis("Mouse Y") * (invertY ? 1.0f : -1.0f);
             rotation.y = Input.GetAxis("Mouse X");
 
             //Look up and down by rotating around the x-axis
@@ -32,7 +35,7 @@ public class CameraController : MonoBehaviour
 
 
         //Move the camera
-        transform.position = target.position + (distanceFromTarget * -transform.forward);
+        transform.position = target.position + (-transform.forward * distanceFromTarget);
         
     }
 }
