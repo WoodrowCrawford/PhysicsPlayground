@@ -4,22 +4,30 @@ using UnityEngine;
 
 public class PlayerBehavior : MonoBehaviour
 {
-    public float speed = 5.0f;
-    public float jumpStrength = 10.0f;
-    public float airControl = 1.0f;
-    public float gravityModifier = 1.0f;
+   
+    public float speed = 5.0f; //How fast the player will go
+
+    public float jumpStrength = 10.0f; //How high the player can jump
+
+    public float airControl = 1.0f;  //How much movement control the player has while in the air
+
+    public float gravityModifier = 1.0f; //Affects the gravity in the scene
+
+    private bool _isJumpDesired = false;
+    private bool _isGrounded = false;
     public bool faceWithCamera = true;
+
 
     public Camera playerCamera;
 
     private CharacterController _controller;
+
     [SerializeField]
     private Animator _animator;
 
     private Vector3 _desiredVelocity;
     private Vector3 _airVelocity;
-    private bool _isJumpDesired = false;
-    private bool _isGrounded = false;
+   
 
     private void Awake()
     {
