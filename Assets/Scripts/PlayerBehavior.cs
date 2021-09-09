@@ -30,6 +30,7 @@ public class PlayerBehavior : MonoBehaviour
     private Vector3 _airVelocity;
    
 
+    //Enables the player animation if the player died
     void Respawn()
     {
         if(Input.GetKeyDown(KeyCode.Q))

@@ -248,11 +248,11 @@ PrefabInstance:
       objectReference: {fileID: 866057336}
     - target: {fileID: 1091085815324699485, guid: 065ce2fa24431ca48aae0a959ec321f1, type: 3}
       propertyPath: jumpStrength
-      value: 3
+      value: 31.09
       objectReference: {fileID: 0}
     - target: {fileID: 1091085815324699485, guid: 065ce2fa24431ca48aae0a959ec321f1, type: 3}
       propertyPath: gravityModifier
-      value: 11
+      value: 5.21
       objectReference: {fileID: 0}
     - target: {fileID: 1091085815324699485, guid: 065ce2fa24431ca48aae0a959ec321f1, type: 3}
       propertyPath: airControl
