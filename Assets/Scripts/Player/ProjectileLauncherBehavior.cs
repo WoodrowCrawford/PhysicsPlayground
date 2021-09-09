@@ -24,7 +24,7 @@ public class ProjectileLauncherBehavior : MonoBehaviour
         _finalVelocity = FindFinalVelocity(_initialVelocity, _acceleration, _time);
 
       Rigidbody projectileInstance = Instantiate(projectile, transform.position, transform.rotation);
-        projectileInstance.AddForce(_initialVelocity);
+        projectileInstance.AddForce(_initialVelocity, ForceMode.VelocityChange);
        
     }
 
