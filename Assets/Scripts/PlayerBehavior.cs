@@ -30,6 +30,19 @@ public class PlayerBehavior : MonoBehaviour
     private Vector3 _airVelocity;
    
 
+    void Respawn()
+    {
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            Debug.Log("Respawn!");
+            _animator.enabled = true;
+        }
+        else
+        {
+            return;
+        }
+    }
+
     private void Awake()
     {
         _controller = GetComponent<CharacterController>();
@@ -37,6 +50,8 @@ public class PlayerBehavior : MonoBehaviour
 
     private void Update()
     {
+        Respawn();
+
         //Get movement input
         float inputForward = Input.GetAxis("Vertical");
         float inputRight = Input.GetAxis("Horizontal");
