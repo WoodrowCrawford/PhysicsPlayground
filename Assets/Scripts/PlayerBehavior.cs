@@ -20,6 +20,7 @@ public class PlayerBehavior : MonoBehaviour
 
     public Camera playerCamera;
 
+    
     private CharacterController _controller;
 
     [SerializeField]
