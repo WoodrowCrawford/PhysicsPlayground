@@ -6,49 +6,71 @@ public class PlayerBehavior : MonoBehaviour
 {
    
     public float speed = 5.0f; //How fast the player will go
-
     public float jumpStrength = 10.0f; //How high the player can jump
-
     public float airControl = 1.0f;  //How much movement control the player has while in the air
-
     public float gravityModifier = 1.0f; //Affects the gravity in the scene
 
     private bool _isJumpDesired = false;
     private bool _isGrounded = false;
+
+
+    public bool touchedCheckPoint = false;
+    public bool hasRespawned = true;
     public bool faceWithCamera = true;
 
 
     public Camera playerCamera;
 
-    
+    [SerializeField]
+    public GameObject checkPoint;
+
+    [SerializeField]
+    public PlayerBehavior player;
+
+
     private CharacterController _controller;
 
     [SerializeField]
     private Animator _animator;
 
-    private Vector3 _desiredVelocity;
-    private Vector3 _airVelocity;
    
 
-    //Enables the player animation if the player died
-    void Respawn()
-    {
-        if(Input.GetKeyDown(KeyCode.Q))
-        {
-            Debug.Log("Respawn!");
-            _animator.enabled = true;
-        }
-        else
-        {
-            return;
-        }
-    }
+    private Vector3 _desiredVelocity;
+    private Vector3 _airVelocity;
+
+
 
     private void Awake()
     {
         _controller = GetComponent<CharacterController>();
+        player = GetComponent<PlayerBehavior>();
     }
 
+   
+    
+
+    //Enables the player animation if the player died
+    public void Respawn()
+    {
+
+        if(Input.GetKeyDown(KeyCode.Q) && touchedCheckPoint == true)
+        {
+            Debug.Log("Respawned at CheckPoint!");
+            hasRespawned = true;
+            _animator.enabled = true;
+           
+            
+        }
+        else if(Input.GetKeyDown(KeyCode.Q))
+        {
+            Debug.Log("Respawn!");
+            _animator.enabled = true;
+            hasRespawned = true;
+        }
+        
+    }
+
+  
     private void Update()
     {
         Respawn();
