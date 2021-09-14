@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManagerBehavior : MonoBehaviour
 {
@@ -22,7 +23,11 @@ public class GameManagerBehavior : MonoBehaviour
         _checkpoint = GetComponent<GameObject>();
     }
 
-    
+    //Reloads the Playground scene
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("Playground");
+    }
 
     private void Start()
     {

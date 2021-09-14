@@ -57,7 +57,11 @@ public class PlayerBehavior : MonoBehaviour
         {
             Debug.Log("Respawned at CheckPoint!");
             hasRespawned = true;
+            player.transform.SetPositionAndRotation(checkPoint.transform.position, new Quaternion());
+
+
             _animator.enabled = true;
+            
            
             
         }

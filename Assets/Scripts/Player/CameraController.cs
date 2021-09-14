@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    public Camera camera;
     public Transform target;
     public float maxDistance = 10.0f;
     public float sensitivity = 5.0f;
@@ -51,5 +52,17 @@ public class CameraController : MonoBehaviour
         }
         //Update the camera's position
         transform.position = target.position + (-transform.forward * currentDistance);
+
+
+        Ray ray = camera.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit) && Input.GetMouseButton(0))
+        {
+            Debug.Log("Screen tocuhed");
+            
+        }
     }
+
+
+
 }
