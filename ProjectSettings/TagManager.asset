@@ -8,6 +8,7 @@ TagManager:
   - PlatformHinge
   - Ball
   - CheckPoint
+  - Gun
   layers:
   - Default
   - TransparentFX
