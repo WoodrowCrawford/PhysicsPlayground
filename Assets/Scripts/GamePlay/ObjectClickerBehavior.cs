@@ -20,7 +20,6 @@ public class ObjectClickerBehavior : MonoBehaviour
 
                     if(rb = hit.transform.GetComponent<Rigidbody>())
                     {
-                        PrintName(hit.transform.gameObject);
                         LaunchIntoAir(rb);
                     }
                 }
@@ -28,13 +27,11 @@ public class ObjectClickerBehavior : MonoBehaviour
             }
         }
     }
-    private void PrintName(GameObject gameObject)
-    {
-        print(gameObject.name);
-    }
 
     private void LaunchIntoAir(Rigidbody rigidbody)
     {
-        rigidbody.AddForce(rigidbody.transform.forward * force, ForceMode.Impulse);
+        //Launches the ball into the air
+        rigidbody.AddForce(rigidbody.transform.up * force, ForceMode.Impulse);
+        
     }
 }
