@@ -17,6 +17,7 @@ public class PlayerBehavior : MonoBehaviour
     public bool touchedCheckPoint = false;
     public bool hasRespawned = true;
     public bool faceWithCamera = true;
+    public bool hasCollectedSecretItem = false;
 
 
     public Camera playerCamera;
@@ -32,8 +33,6 @@ public class PlayerBehavior : MonoBehaviour
 
     [SerializeField]
     private Animator _animator;
-
-   
 
     private Vector3 _desiredVelocity;
     private Vector3 _airVelocity;

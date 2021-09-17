@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: a224c093f9982c841b33fc072b09d0bb, type: 2}
 --- !u!1 &81136
 GameObject:
   m_ObjectHideFlags: 0
@@ -8835,6 +8835,7 @@ GameObject:
   - component: {fileID: 199046772}
   - component: {fileID: 199046771}
   - component: {fileID: 199046770}
+  - component: {fileID: 199046773}
   m_Layer: 0
   m_Name: WallLimits (2)
   m_TagString: Untagged
@@ -8918,6 +8919,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 199046768}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &199046773
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199046768}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &199802936
 GameObject:
   m_ObjectHideFlags: 0
@@ -15097,6 +15114,7 @@ GameObject:
   - component: {fileID: 353993537}
   - component: {fileID: 353993536}
   - component: {fileID: 353993535}
+  - component: {fileID: 353993539}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -15180,6 +15198,22 @@ Transform:
   m_Father: {fileID: 1292827636}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &353993539
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353993534}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &356427039
 GameObject:
   m_ObjectHideFlags: 0
@@ -21803,7 +21837,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &528363651
 MeshCollider:
@@ -44586,6 +44620,7 @@ GameObject:
   - component: {fileID: 1020572923}
   - component: {fileID: 1020572922}
   - component: {fileID: 1020572921}
+  - component: {fileID: 1020572925}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -44669,6 +44704,22 @@ Transform:
   m_Father: {fileID: 1292827636}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &1020572925
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020572920}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1024213127
 GameObject:
   m_ObjectHideFlags: 0
@@ -46559,6 +46610,7 @@ GameObject:
   - component: {fileID: 1064042847}
   - component: {fileID: 1064042846}
   - component: {fileID: 1064042845}
+  - component: {fileID: 1064042849}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -46642,6 +46694,22 @@ Transform:
   m_Father: {fileID: 1292827636}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &1064042849
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064042844}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1065590526
 GameObject:
   m_ObjectHideFlags: 0
@@ -66671,8 +66739,8 @@ GameObject:
   m_Name: PlatformHazard
   m_TagString: Hazard
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!122 &1518548314
 Halo:
@@ -76949,6 +77017,7 @@ GameObject:
   - component: {fileID: 1745506269}
   - component: {fileID: 1745506268}
   - component: {fileID: 1745506267}
+  - component: {fileID: 1745506271}
   m_Layer: 0
   m_Name: WallLimits (1)
   m_TagString: Untagged
@@ -77032,6 +77101,22 @@ Transform:
   m_Father: {fileID: 1292827636}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!208 &1745506271
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745506266}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1749336632
 GameObject:
   m_ObjectHideFlags: 0
@@ -82644,6 +82729,7 @@ GameObject:
   - component: {fileID: 1872816239}
   - component: {fileID: 1872816238}
   - component: {fileID: 1872816237}
+  - component: {fileID: 1872816240}
   m_Layer: 0
   m_Name: WallLimits (1)
   m_TagString: Untagged
@@ -82727,6 +82813,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1872816235}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &1872816240
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872816235}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1874747663
 GameObject:
   m_ObjectHideFlags: 0
@@ -86160,7 +86262,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87af00717d9c1c7458dbc186f5fae889, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 0}
   _checkpoint: {fileID: 540724165}
+  _goal: {fileID: 0}
 --- !u!1 &1952074975
 GameObject:
   m_ObjectHideFlags: 0
