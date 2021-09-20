@@ -22,6 +22,7 @@ public class GameManagerBehavior : MonoBehaviour
         _player = GetComponent<PlayerBehavior>();
         _checkpoint = GetComponent<GameObject>();
         _goal = GetComponent<GameObject>();
+        
     }
 
     //Starts the game

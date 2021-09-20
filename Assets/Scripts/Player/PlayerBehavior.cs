@@ -28,6 +28,8 @@ public class PlayerBehavior : MonoBehaviour
     [SerializeField]
     public PlayerBehavior player;
 
+    private GameManagerBehavior gameManager;
+    public GameObject gameManagers;
 
     private CharacterController _controller;
 
@@ -43,6 +45,8 @@ public class PlayerBehavior : MonoBehaviour
     {
         _controller = GetComponent<CharacterController>();
         player = GetComponent<PlayerBehavior>();
+        gameManager = GetComponent<GameManagerBehavior>();
+        gameManager = gameManagers.gameObject.GetComponent<GameManagerBehavior>();
     }
 
    
@@ -55,20 +59,16 @@ public class PlayerBehavior : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Q) && touchedCheckPoint == true)
         {
             Debug.Log("Respawned at CheckPoint!");
-            hasRespawned = true;
-            player.transform.SetPositionAndRotation(checkPoint.transform.position, new Quaternion());
 
-
-            _animator.enabled = true;
-            
+            gameManager.RestartGame();
            
             
         }
         else if(Input.GetKeyDown(KeyCode.Q))
         {
+            gameManager.RestartGame();
             Debug.Log("Respawn!");
-            _animator.enabled = true;
-            hasRespawned = true;
+          
         }
         
     }

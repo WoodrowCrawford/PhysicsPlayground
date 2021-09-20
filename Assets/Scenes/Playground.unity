@@ -32543,6 +32543,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1041811622}
+    - target: {fileID: 1091085815324699485, guid: 065ce2fa24431ca48aae0a959ec321f1, type: 3}
+      propertyPath: gameManagers
+      value: 
+      objectReference: {fileID: 1949188752}
     - target: {fileID: 1091085815353644584, guid: 065ce2fa24431ca48aae0a959ec321f1, type: 3}
       propertyPath: m_ConnectedAnchor.x
       value: -0.11357216
