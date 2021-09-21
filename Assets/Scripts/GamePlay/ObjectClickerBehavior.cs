@@ -8,6 +8,7 @@ public class ObjectClickerBehavior : MonoBehaviour
 
     private void Update()
     {
+        //Receives the input from the mouse if the player clicks the left mouse button
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
@@ -20,6 +21,7 @@ public class ObjectClickerBehavior : MonoBehaviour
 
                     if(rb = hit.transform.GetComponent<Rigidbody>())
                     {
+                        //Launches the selected game object in the air on clilk
                         LaunchIntoAir(rb);
                     }
                 }

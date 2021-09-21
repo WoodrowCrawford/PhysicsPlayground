@@ -6,12 +6,13 @@ public class CameraController : MonoBehaviour
 {
     public Camera camera;
     public Transform target;
+
     public float maxDistance = 10.0f;
     public float sensitivity = 5.0f;
-    public bool invertY = false;
     public float relaxSpeed = 20.0f;
-
     private float currentDistance;
+
+    public bool invertY = false;
 
     private void Start()
     {

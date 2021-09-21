@@ -9,9 +9,10 @@ public class ProjectileLauncherBehavior : MonoBehaviour
 
     public float travelTime;
 
+    private float _time = 0.0f;
+
     private Vector3 _displacement = new Vector3();
     private Vector3 _acceleration = new Vector3();
-    private float _time = 0.0f;
     private Vector3 _initialVelocity = new Vector3();
     private Vector3 _finalVelocity = new Vector3();
 

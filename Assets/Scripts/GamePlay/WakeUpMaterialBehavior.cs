@@ -11,6 +11,7 @@ public class WakeUpMaterialBehavior : MonoBehaviour
     public Material asleepMaterial = null;
 
     private Rigidbody _rigidbody = null;
+
     private MeshRenderer _renderer = null;
 
     private bool _wasAsleep = false;

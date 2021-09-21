@@ -4,22 +4,6 @@ using UnityEngine;
 
 public class PlayerBehavior : MonoBehaviour
 {
-   
-    public float speed = 5.0f; //How fast the player will go
-    public float jumpStrength = 10.0f; //How high the player can jump
-    public float airControl = 1.0f;  //How much movement control the player has while in the air
-    public float gravityModifier = 1.0f; //Affects the gravity in the scene
-
-    private bool _isJumpDesired = false;
-    private bool _isGrounded = false;
-
-
-    public bool touchedCheckPoint = false;
-    public bool hasRespawned = true;
-    public bool faceWithCamera = true;
-    public bool hasCollectedSecretItem = false;
-
-
     public Camera playerCamera;
 
     [SerializeField]
@@ -28,13 +12,28 @@ public class PlayerBehavior : MonoBehaviour
     [SerializeField]
     public PlayerBehavior player;
 
-    private GameManagerBehavior gameManager;
     public GameObject gameManagers;
 
+    private GameManagerBehavior gameManager;
+ 
     private CharacterController _controller;
 
     [SerializeField]
     private Animator _animator;
+
+
+    public float speed = 5.0f; //How fast the player will go
+    public float jumpStrength = 10.0f; //How high the player can jump
+    public float airControl = 1.0f;  //How much movement control the player has while in the air
+    public float gravityModifier = 1.0f; //Affects the gravity in the scene
+
+   
+    public bool hasRespawned = true;
+    public bool faceWithCamera = true;
+    
+
+    private bool _isJumpDesired = false;
+    private bool _isGrounded = false;
 
     private Vector3 _desiredVelocity;
     private Vector3 _airVelocity;
@@ -43,32 +42,23 @@ public class PlayerBehavior : MonoBehaviour
 
     private void Awake()
     {
+        //Gets all the components that the player behavior needs
         _controller = GetComponent<CharacterController>();
         player = GetComponent<PlayerBehavior>();
         gameManager = GetComponent<GameManagerBehavior>();
         gameManager = gameManagers.gameObject.GetComponent<GameManagerBehavior>();
     }
 
-   
-    
+  
 
     //Enables the player animation if the player died
     public void Respawn()
     {
-
-        if(Input.GetKeyDown(KeyCode.Q) && touchedCheckPoint == true)
-        {
-            Debug.Log("Respawned at CheckPoint!");
-
-            gameManager.RestartGame();
-           
-            
-        }
-        else if(Input.GetKeyDown(KeyCode.Q))
+        //If the player dies then restart the game
+        if(Input.GetKeyDown(KeyCode.Q))
         {
             gameManager.RestartGame();
             Debug.Log("Respawn!");
-          
         }
         
     }
@@ -86,6 +76,7 @@ public class PlayerBehavior : MonoBehaviour
         Vector3 cameraForward = playerCamera.transform.forward;
         cameraForward.y = 0.0f;
         cameraForward.Normalize();
+
         //Get camera right
         Vector3 cameraRight = playerCamera.transform.right;
 

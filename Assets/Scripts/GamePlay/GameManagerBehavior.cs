@@ -9,20 +9,18 @@ public class GameManagerBehavior : MonoBehaviour
     [SerializeField]
     private PlayerBehavior _player;
 
-    [SerializeField]
-    private GameObject _checkpoint;
+    public GameObject winScreen;
 
-    [SerializeField]
-    private GameObject _goal;
+
+    public bool _gameWon = false;
 
 
     private void Awake()
     {
-        //Gets the component of the player Behavior script
+        //Gets all the components
         _player = GetComponent<PlayerBehavior>();
-        _checkpoint = GetComponent<GameObject>();
-        _goal = GetComponent<GameObject>();
         
+
     }
 
     //Starts the game
@@ -38,13 +36,22 @@ public class GameManagerBehavior : MonoBehaviour
         SceneManager.LoadScene("Playground");
     }
 
+
     private void Start()
     {
-       
+        winScreen.SetActive(false);
     }
 
     private void Update()
     {
-        
+        if (_gameWon == true)
+        {
+            winScreen.SetActive(true);
+        }
+        else
+        {
+            winScreen.SetActive(false);
+        }
     }
+
 }

@@ -7,11 +7,11 @@ TagManager:
   - Hazard
   - PlatformHinge
   - Ball
-  - CheckPoint
   - Gun
   - Door
   - Goal
-  - SecretItem
+  - Key
+  - LockedDoor
   layers:
   - Default
   - TransparentFX
