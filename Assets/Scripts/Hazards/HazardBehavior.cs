@@ -11,7 +11,7 @@ public class HazardBehavior : MonoBehaviour
     //Will disable player animation on collision
     private void OnTriggerEnter(Collider other)
     {
-        if (this.CompareTag("Hazard"))
+        if (other.CompareTag("Player")) 
         {
             _animator.enabled = false;
         }
