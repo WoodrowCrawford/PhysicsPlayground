@@ -12,8 +12,8 @@ public class EnemyBehavior : MonoBehaviour
 
     public Vector3 getNewPosition()
     {
-        float x = Random.Range(-200, 200);
-        float z = Random.Range(-200, 200);
+        float x = Random.Range(-106.44f, 6.58f);
+        float z = Random.Range(-53.21f, 8.58f);
 
         Vector3 pos = new Vector3(x, 0, z);
         return pos;
