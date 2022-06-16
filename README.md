@@ -17,3 +17,5 @@ PhysicsPlayground
    *      AI objects can only spawn in the outside area after you pass the platforms.
    *      The game can lag very slightly.
    *      The game does not have a win screen or anything. It is simply a demo.
+
+Download link: https://github.com/WoodrowCrawford/PhysicsPlayground/releases/download/v1.0/PhysicsPlayground.exe.v1.0.zip
